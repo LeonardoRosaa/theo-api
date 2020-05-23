@@ -1,0 +1,12 @@
+{
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6"
+    
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "cors": "^2.8.5"
+    
+  }
+}
