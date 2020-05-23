@@ -1,13 +1,13 @@
 import IPackagesService from "../interfaces/packages_service"
 import IPackageJSON from '../interfaces/package_json'
 
-import axios from 'axios'
-
+import IDataResponsePackage from "../interfaces/data_response_package"
+import DependencyService from './dependency'
 class Packages implements IPackagesService {
   
   private packages: IPackageJSON = {}
   
-  async update(packageJSON: IPackageJSON): Promise<any> {
+  async update(packageJSON: IPackageJSON): Promise<IDataResponsePackage> {
     
     this.packages = packageJSON
 
@@ -66,29 +66,12 @@ class Packages implements IPackagesService {
     let infosDependencies: IInfoDependency[] = []
     
     for (const key in dependency) {
-      const info = await this.getInfoDependency(key)
+      const info = await DependencyService.getInfoDependency(key)
       infosDependencies.push(info)
     }
 
     return infosDependencies
-  }
-
-  async getInfoDependency(nameDependency: string) {
-    try {
-      const dependencyInfo = await axios.get(`https://registry.npmjs.com/${nameDependency}`)
-
-      const { latest, next } = dependencyInfo.data['dist-tags']
-      return {
-        name: nameDependency,
-        latest,
-        next
-      } as IInfoDependency
-    } catch(error) {
-      console.log(error)
-      return {} as IInfoDependency
-    }
-  }
-  
+  }  
 }
 
 export default new Packages()
