@@ -29,7 +29,7 @@ class Packages implements IPackagesService {
     return { 
       yourUpdatedSettings: updatedPackages, 
       yourCurrentSettings: this.packages 
-    }
+    } as IDataResponsePackage
   }
 
   buildUpdatePackages(
