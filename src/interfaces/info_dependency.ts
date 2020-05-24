@@ -3,3 +3,5 @@ interface IInfoDependency {
   latest: string
   next: string
 }
+
+export default IInfoDependency

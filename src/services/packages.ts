@@ -3,6 +3,7 @@ import IPackageJSON from '../interfaces/package_json'
 
 import IDataResponsePackage from "../interfaces/data_response_package"
 import DependencyService from './dependency'
+import IInfoDependency from '../interfaces/info_dependency'
 class Packages implements IPackagesService {
   
   private packages: IPackageJSON = {}
@@ -12,8 +13,8 @@ class Packages implements IPackagesService {
     this.packages = packageJSON
 
     const response = await Promise.all([
-      this.iterableDependenciesAndGetInfo(packageJSON?.dependencies),
-      this.iterableDependenciesAndGetInfo(packageJSON?.devDependencies)
+      this.iterableDependenciesAndGetInfo(packageJSON?.dependencies || {}),
+      this.iterableDependenciesAndGetInfo(packageJSON?.devDependencies || {})
     ])
 
     const builtUpdatedPackages = await Promise.all([

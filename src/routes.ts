@@ -4,6 +4,6 @@ import PackagesController from './controllers/packages'
 
 const routes = Router()
 
-routes.put('/', PackagesController.update)
+routes.put('/packages', PackagesController.update)
 
 export default routes;

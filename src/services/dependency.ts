@@ -1,4 +1,5 @@
 import axios from 'axios'
+import IInfoDependency from '../interfaces/info_dependency'
 
 class DependencyService {
 
