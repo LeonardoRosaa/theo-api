@@ -50,3 +50,11 @@ packages | PUT | Pass in body a json with devDependecies and or dependencies
   }
 }
 ```
+
+### :rocket: Technologies
+
+- [NodeJS](https://nodejs.org/en/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Jest](https://jestjs.io/)
+
+Made by [leonardoRosaa](https://github.com/LeonardoRosaa) :brown_heart: :rocket:
